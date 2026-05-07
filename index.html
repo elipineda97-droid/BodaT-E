@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Nuestra Boda · 18.07.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B3D5C;
+    --navy-deep: #082A40;
+    --teal: #0D9488;
+    --mint: #14B8A6;
+    --sage: #5EEAD4;
+    --cream: #FAFAF7;
+    --paper: #FFFFFF;
+    --ink: #0F172A;
+    --slate: #475569;
+    --slate-light: #94A3B8;
+    --line: #E2E8F0;
+    --warm: #F4D06F;
+    --coral: #F87171;
+    --green-soft: #BBF7D0;
+    --green-deep: #166534;
+    --rose: #FECDD3;
+    --rose-deep: #BE185D;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px; line-height: 1.55; color: var(--ink);
+    background: var(--cream); -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero { background: var(--navy); color: var(--paper); padding: 56px 24px 64px; position: relative; overflow: hidden; }
+  .hero::before { content: ""; position: absolute; top: -120px; right: -100px; width: 320px; height: 320px;
+    border-radius: 50%; background: radial-gradient(circle, var(--teal) 0%, transparent 70%); opacity: 0.4; }
+  .hero::after { content: ""; position: absolute; bottom: -80px; left: -80px; width: 240px; height: 240px;
+    border-radius: 50%; background: radial-gradient(circle, var(--mint) 0%, transparent 70%); opacity: 0.25; }
+  .hero-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+  .hero-eyebrow { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage); font-weight: 500; margin-bottom: 18px; }
+  .hero-names { font-family: 'Fraunces', Georgia, serif; font-size: clamp(48px, 12vw, 84px); font-weight: 400; line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 24px; }
+  .hero-names em { font-style: italic; font-weight: 300; color: var(--sage); }
+  .hero-date { font-family: 'Fraunces', Georgia, serif; font-size: 22px; font-weight: 400; margin-bottom: 36px; color: rgba(255,255,255,0.85); }
+  .hero-date strong { font-weight: 500; color: var(--paper); }
+  .countdown { display: flex; gap: 10px; flex-wrap: wrap; }
+  .count-cell { background: rgba(255,255,255,0.08); backdrop-filter: blur(6px); border: 1px solid rgba(94,234,212,0.2); border-radius: 14px; padding: 12px 14px; min-width: 64px; flex: 1 1 auto; }
+  .count-num { font-family: 'Fraunces', Georgia, serif; font-size: 32px; font-weight: 500; line-height: 1; color: var(--paper); }
+  .count-lbl { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-top: 6px; }
+  .hero-letter { margin-top: 32px; padding: 18px 20px; background: rgba(255,255,255,0.06); border-left: 3px solid var(--sage); border-radius: 0 12px 12px 0; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 16px; line-height: 1.65; color: rgba(255,255,255,0.92); }
+
+  /* LAYOUT */
+  main { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 56px 0 16px; border-top: 1px solid var(--line); }
+  section:first-of-type { border-top: none; padding-top: 48px; }
+  .eyebrow { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--teal); font-weight: 600; margin-bottom: 12px; }
+  h2 { font-family: 'Fraunces', Georgia, serif; font-size: clamp(28px, 6vw, 36px); font-weight: 500; line-height: 1.1; color: var(--navy); margin-bottom: 12px; letter-spacing: -0.01em; }
+  h2 em { font-style: italic; font-weight: 400; color: var(--teal); }
+  .lead { font-size: 15px; color: var(--slate); margin-bottom: 28px; line-height: 1.6; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  @media (min-width: 540px) { .grid-2 { grid-template-columns: 1fr 1fr; gap: 14px; } }
+
+  .data-card { background: var(--paper); border-radius: 16px; padding: 20px; border: 1px solid var(--line); position: relative; overflow: hidden; }
+  .data-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--teal); }
+  .data-card .label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--slate-light); font-weight: 600; margin-bottom: 8px; }
+  .data-card .value { font-family: 'Fraunces', Georgia, serif; font-size: 22px; font-weight: 500; color: var(--navy); margin-bottom: 4px; line-height: 1.2; }
+  .data-card .meta { font-size: 13px; color: var(--slate); }
+
+  /* MONEY */
+  .money-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-bottom: 18px; }
+  @media (min-width: 540px) { .money-grid { grid-template-columns: 1fr 1fr; } }
+  .money-card { background: var(--paper); border-radius: 16px; padding: 20px; border: 1px solid var(--line); position: relative; }
+  .money-card.us::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--teal); border-radius: 4px 0 0 4px; }
+  .money-card.mom::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--rose-deep); border-radius: 4px 0 0 4px; }
+  .money-card .lbl { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--slate-light); font-weight: 600; margin-bottom: 6px; }
+  .money-card .val { font-family: 'Fraunces', Georgia, serif; font-size: 28px; font-weight: 600; color: var(--navy); margin-bottom: 8px; line-height: 1; }
+  .money-card .desc { font-size: 13px; color: var(--slate); line-height: 1.5; }
+
+  .money-breakdown { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 8px 18px; margin-bottom: 18px; }
+  .money-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+  .money-row:last-child { border-bottom: none; }
+  .money-row .name { color: var(--slate); }
+  .money-row .amt { font-family: 'Fraunces', Georgia, serif; font-weight: 500; color: var(--navy); }
+  .money-row.total { border-top: 2px solid var(--navy); margin-top: 4px; padding-top: 16px; }
+  .money-row.total .name { font-weight: 600; color: var(--navy); }
+  .money-row.total .amt { font-size: 18px; font-weight: 600; }
+
+  .ceiling-callout { background: linear-gradient(135deg, var(--rose) 0%, #FBCFE8 100%); border-radius: 16px; padding: 20px 22px; margin-top: 18px; }
+  .ceiling-callout .lbl { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose-deep); font-weight: 700; margin-bottom: 8px; }
+  .ceiling-callout .num { font-family: 'Fraunces', Georgia, serif; font-size: 32px; font-weight: 600; color: var(--rose-deep); margin-bottom: 6px; }
+  .ceiling-callout .why { font-size: 13px; color: #831843; line-height: 1.6; }
+
+  /* VENUES */
+  .venue { background: var(--paper); border-radius: 18px; padding: 22px; border: 1px solid var(--line); margin-bottom: 14px; position: relative; }
+  .venue.discarded { opacity: 0.7; }
+  .venue-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
+  .venue-name { font-family: 'Fraunces', Georgia, serif; font-size: 22px; font-weight: 500; color: var(--navy); line-height: 1.2; }
+  .venue-date { font-size: 12px; color: var(--slate); margin-top: 4px; }
+  .badge { flex-shrink: 0; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; padding: 5px 10px; border-radius: 999px; white-space: nowrap; }
+  .badge.confirmed { background: var(--green-soft); color: var(--green-deep); }
+  .badge.pending { background: #FEF3C7; color: #92400E; }
+  .badge.scheduled { background: #DBEAFE; color: #1E40AF; }
+  .badge.discarded { background: #F3F4F6; color: #6B7280; }
+
+  .venue-status { font-size: 14px; color: var(--ink); padding: 12px 14px; background: var(--cream); border-radius: 10px; border-left: 3px solid var(--teal); margin-bottom: 14px; }
+
+  .venue-money { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 10px; }
+  .venue-money-cell { background: var(--cream); border-radius: 10px; padding: 12px; }
+  .venue-money-cell .lbl { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-light); font-weight: 600; margin-bottom: 4px; }
+  .venue-money-cell .val { font-family: 'Fraunces', Georgia, serif; font-size: 16px; font-weight: 600; color: var(--navy); }
+  .venue-money-cell .val.pos { color: var(--green-deep); }
+  .venue-money-cell .val.neg { color: var(--coral); }
+
+  .venue-feel { margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 13px; color: var(--slate); line-height: 1.6; font-style: italic; }
+  .venue-feel strong { font-style: normal; color: var(--navy); font-weight: 600; }
+
+  /* FRENTES */
+  .frente { display: flex; align-items: flex-start; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .frente:last-child { border-bottom: none; }
+  .frente-icon { flex-shrink: 0; width: 40px; height: 40px; border-radius: 10px; background: var(--cream); display: flex; align-items: center; justify-content: center; font-size: 20px; }
+  .frente-content { flex: 1; }
+  .frente-title { font-weight: 600; color: var(--navy); font-size: 15px; margin-bottom: 3px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .frente-pill { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; font-weight: 700; }
+  .frente-pill.urgent { background: #FEE2E2; color: #991B1B; }
+  .frente-pill.this-week { background: #FEF3C7; color: #92400E; }
+  .frente-pill.may { background: #DBEAFE; color: #1E40AF; }
+  .frente-pill.june { background: #E0E7FF; color: #3730A3; }
+  .frente-pill.deferred { background: #F3F4F6; color: #6B7280; }
+  .frente-desc { font-size: 13px; color: var(--slate); line-height: 1.55; }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 26px; }
+  .timeline::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+  .tl-item { position: relative; padding-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -24px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--teal); }
+  .tl-item.today::before { background: var(--teal); box-shadow: 0 0 0 4px rgba(13,148,136,0.15); }
+  .tl-item.boda::before { background: var(--coral); border-color: var(--coral); width: 14px; height: 14px; left: -25px; }
+  .tl-day { font-family: 'Fraunces', Georgia, serif; font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .tl-day .pill { display: inline-block; margin-left: 8px; font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--teal); color: var(--paper); padding: 2px 8px; border-radius: 999px; font-weight: 700; vertical-align: middle; }
+  .tl-evt { font-size: 14px; color: var(--slate); line-height: 1.55; }
+
+  /* QUESTIONS */
+  .question-block { background: linear-gradient(135deg, #FEF3C7 0%, #FED7AA 100%); border-radius: 18px; padding: 22px; margin-bottom: 14px; }
+  .question-block .lbl { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #92400E; font-weight: 700; margin-bottom: 10px; }
+  .question-block .q { font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 500; color: #78350F; line-height: 1.3; margin-bottom: 8px; }
+  .question-block .why { font-size: 13px; color: #78350F; line-height: 1.6; }
+
+  /* FOOTER */
+  footer { margin-top: 48px; padding: 32px 20px 48px; text-align: center; color: var(--slate); font-size: 12px; border-top: 1px solid var(--line); }
+  footer .heart { font-family: 'Fraunces', Georgia, serif; font-style: italic; color: var(--navy); font-size: 17px; margin-bottom: 8px; line-height: 1.5; }
+
+  .note-info { background: rgba(13,148,136,0.08); border-radius: 12px; padding: 14px 18px; margin-top: 16px; font-size: 13px; color: var(--slate); line-height: 1.55; border-left: 3px solid var(--teal); }
+  .note-info strong { color: var(--navy); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Panorama actualizado · Para Thania</div>
+    <h1 class="hero-names">Eli <em>&amp;</em> Thania</h1>
+    <div class="hero-date"><strong>Sábado 18 de julio</strong> · 2026</div>
+    <div class="countdown" id="countdown">
+      <div class="count-cell"><div class="count-num" id="cd-d">—</div><div class="count-lbl">días</div></div>
+      <div class="count-cell"><div class="count-num" id="cd-h">—</div><div class="count-lbl">horas</div></div>
+      <div class="count-cell"><div class="count-num" id="cd-m">—</div><div class="count-lbl">min</div></div>
+      <div class="count-cell"><div class="count-num" id="cd-s">—</div><div class="count-lbl">seg</div></div>
+    </div>
+    <div class="hero-letter">
+      Amor, le actualizo el panorama para que veamos juntos los números reales antes de decidir el lugar.
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- BASE -->
+  <section>
+    <div class="eyebrow">Lo que tenemos</div>
+    <h2>Nuestra <em>base</em></h2>
+    <p class="lead">Esto ya lo decidimos juntos. No se mueve.</p>
+    <div class="grid-2">
+      <div class="data-card">
+        <div class="label">Fecha</div>
+        <div class="value">Sábado 18 julio 2026</div>
+        <div class="meta">Empieza nuestra historia juntos</div>
+      </div>
+      <div class="data-card">
+        <div class="label">Invitados</div>
+        <div class="value">70 a 75 personas</div>
+        <div class="meta">55 adultos + 20 niños</div>
+      </div>
+      <div class="data-card">
+        <div class="label">Ceremonia</div>
+        <div class="value">Evangélica + civil</div>
+        <div class="meta">Mismo salón · pastor invitado</div>
+      </div>
+      <div class="data-card">
+        <div class="label">Horario</div>
+        <div class="value">4:00 – 9:00 PM</div>
+        <div class="meta">5 horas de evento</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DINERO -->
+  <section>
+    <div class="eyebrow">El dinero</div>
+    <h2>Lo que <em>tenemos</em></h2>
+    <p class="lead">Lo que ya está líquido entre los dos.</p>
+
+    <div class="money-grid">
+      <div class="money-card us">
+        <div class="lbl">Disponible nuestro</div>
+        <div class="val">L 80,000</div>
+        <div class="desc">Su ahorro, regalo de mis papás y hermana, préstamo BAC ya en cuenta</div>
+      </div>
+      <div class="money-card mom">
+        <div class="lbl">Sugerencia · aporte su mamá</div>
+        <div class="val">L 45,000</div>
+        <div class="desc">Techo que sugiero platicar con ella, basado en lo que ella misma mencionó al ofrecerse</div>
+      </div>
+    </div>
+
+    <div class="money-breakdown">
+      <div class="money-row">
+        <div class="name">Su ahorro</div>
+        <div class="amt">L 30,000</div>
+      </div>
+      <div class="money-row">
+        <div class="name">Regalo de mis papás y hermana</div>
+        <div class="amt">L 25,000</div>
+      </div>
+      <div class="money-row">
+        <div class="name">Préstamo BAC (ya en mi cuenta)</div>
+        <div class="amt">L 25,000</div>
+      </div>
+      <div class="money-row">
+        <div class="name">Aporte de su mamá</div>
+        <div class="amt">L 45,000</div>
+      </div>
+      <div class="money-row total">
+        <div class="name">Total disponible</div>
+        <div class="amt">L 125,000</div>
+      </div>
+    </div>
+
+    <div class="ceiling-callout">
+      <div class="lbl">Sugerencia · techo de L 45,000</div>
+      <div class="why">Amor, quiero sugerirle que pongamos un techo de L 45,000 al apoyo de su mamá. Cuando ella se ofreció, hablamos de precios cerca de los L 40 y pico de mil. Esto sería para no cargarla más allá de lo que ella naturalmente expresó. Si usted está de acuerdo, le hablaríamos a su mamá para agradecerle y comentarle el monto que estamos considerando, dejándola con la libertad de decirnos si quiere más o menos. Si el lugar cuesta menos del techo, mejor para ella. Si cuesta más, la diferencia la cubrimos nosotros.</div>
+    </div>
+  </section>
+
+  <!-- LUGARES -->
+  <section>
+    <div class="eyebrow">Los tres lugares</div>
+    <h2>Dónde <em>celebrar</em></h2>
+    <p class="lead">Tres opciones cotizadas. Lo presento honesto: cuánto cuesta cada uno bajo nuestro plan financiero.</p>
+
+    <!-- HOTEL MAYA COLONIAL -->
+    <div class="venue">
+      <div class="venue-header">
+        <div>
+          <div class="venue-name">Hotel Maya Colonial</div>
+          <div class="venue-date">Salón Colonial · sábado 18 julio</div>
+        </div>
+        <span class="badge scheduled">Visita hoy 4 PM</span>
+      </div>
+      <div class="venue-status">Hotel formal con A/C garantizado. Comida buffet por default. Cortesías para nosotros: habitación de noche de bodas, desayuno y degustación de menú. Permite ceremonia evangélica + civil en el salón.</div>
+      <div class="venue-money">
+        <div class="venue-money-cell">
+          <div class="lbl">Costo total</div>
+          <div class="val">L 44,225</div>
+        </div>
+        <div class="venue-money-cell">
+          <div class="lbl">Cubre su mamá</div>
+          <div class="val">L 44,225</div>
+        </div>
+        <div class="venue-money-cell">
+          <div class="lbl">Ponemos nosotros</div>
+          <div class="val pos">L 0</div>
+        </div>
+      </div>
+      <div class="venue-feel">
+        Si escogemos Maya con menú César (L 44,225), el monto cabe dentro del techo que estamos considerando con su mamá. Nuestros L 80,000 quedarían libres para todo lo demás. <strong>Margen muy holgado.</strong> Si subimos a menú Primavera (L 47,663, filet mignon), ponemos nosotros L 2,663 extra de la diferencia.
+      </div>
+    </div>
+
+    <!-- ANGELI GARDENS -->
+    <div class="venue">
+      <div class="venue-header">
+        <div>
+          <div class="venue-name">Angeli Gardens</div>
+          <div class="venue-date">Jardín Las Clementinas · sábado 18 julio</div>
+        </div>
+        <span class="badge pending">Visita pendiente</span>
+      </div>
+      <div class="venue-status">Jardín boutique al aire libre, 5 horas de salón incluidas. Mantiene el sábado 18. Falta visitarlo este fin de semana para ver si nos enamora.</div>
+      <div class="venue-money">
+        <div class="venue-money-cell">
+          <div class="lbl">Costo total</div>
+          <div class="val">L 73,625</div>
+        </div>
+        <div class="venue-money-cell">
+          <div class="lbl">Cubre su mamá</div>
+          <div class="val">L 45,000</div>
+        </div>
+        <div class="venue-money-cell">
+          <div class="lbl">Ponemos nosotros</div>
+          <div class="val neg">L 28,625</div>
+        </div>
+      </div>
+      <div class="venue-feel">
+        Si nos enamora la visita y escogemos Angeli, ponemos L 28,625 nuestros del lugar. Nos quedan <strong>L 51,375</strong> para vestido, fotógrafo, anillos, traje, maquillaje, decoración, pastel, trámite y recuerdos. Cabe ajustado pero cabe, sobre todo si no pedimos los recuerdos para invitados o si ahorramos algo en mayo y junio.
+      </div>
+    </div>
+
+    <!-- VILLA D'ILINA -->
+    <div class="venue discarded">
+      <div class="venue-header">
+        <div>
+          <div class="venue-name">Villa D'Ilina</div>
+          <div class="venue-date">Viernes 17 o domingo 19 julio (no sábado)</div>
+        </div>
+        <span class="badge discarded">Descartado racionalmente</span>
+      </div>
+      <div class="venue-status">Visitamos juntos el jueves 30 abril. Nos encantó. Estilo rústico-elegante con pérgola, jardín y salón. Pero solo está disponible viernes 17 o domingo 19, no nuestro sábado, y el costo rebasa nuestro plan.</div>
+      <div class="venue-money">
+        <div class="venue-money-cell">
+          <div class="lbl">Costo total</div>
+          <div class="val">L 86,250</div>
+        </div>
+        <div class="venue-money-cell">
+          <div class="lbl">Cubre su mamá</div>
+          <div class="val">L 45,000</div>
+        </div>
+        <div class="venue-money-cell">
+          <div class="lbl">Ponemos nosotros</div>
+          <div class="val neg">L 41,250</div>
+        </div>
+      </div>
+      <div class="venue-feel">
+        Para escoger D'Ilina nosotros tendríamos que poner <strong>L 41,250</strong>, más de la mitad de nuestro disponible. Quedarían L 38,750 para todo lo demás (vestido, foto, anillos, traje, etc.) que cuesta cerca de L 47,000. <strong>Brecha de L 8,000+ sin posibilidad fácil de cierre.</strong> Por eso lo descartamos racionalmente, aunque sí nos encantó.
+      </div>
+    </div>
+  </section>
+
+  <!-- FRENTES PENDIENTES -->
+  <section>
+    <div class="eyebrow">Lo que falta operativo</div>
+    <h2>Frentes <em>abiertos</em></h2>
+    <p class="lead">Cada cosa con su tiempo. Lo más urgente arriba, lo que podemos diferir abajo.</p>
+
+    <div class="frente">
+      <div class="frente-icon">📸</div>
+      <div class="frente-content">
+        <div class="frente-title">Fotógrafo Manuel Portillo <span class="frente-pill urgent">Esta semana</span></div>
+        <div class="frente-desc">Lo tenemos en mente, no lo hemos contactado. Le escribo este fin de semana para preguntar disponibilidad sábado 18 julio. Rango de presupuesto L 10,000 a L 15,000.</div>
+      </div>
+    </div>
+
+    <div class="frente">
+      <div class="frente-icon">⛪</div>
+      <div class="frente-content">
+        <div class="frente-title">Pastor invitado <span class="frente-pill this-week">Fin de semana</span></div>
+        <div class="frente-desc">Mi papá será mi papá, no oficiará. Hablamos este fin de semana sobre opciones de pastor amigo de la familia o de la iglesia. Costo cero.</div>
+      </div>
+    </div>
+
+    <div class="frente">
+      <div class="frente-icon">🌿</div>
+      <div class="frente-content">
+        <div class="frente-title">Visita Angeli Gardens <span class="frente-pill this-week">Fin de semana</span></div>
+        <div class="frente-desc">Le escribo a Lourdes Madrid para pedir cita sábado 9 o domingo 10 de mayo. Vamos juntos.</div>
+      </div>
+    </div>
+
+    <div class="frente">
+      <div class="frente-icon">✈️</div>
+      <div class="frente-content">
+        <div class="frente-title">Luna de miel <span class="frente-pill may">Mayo</span></div>
+        <div class="frente-desc">Su hermana y su mamá expresaron disposición de regalarla. Definimos opción local o internacional según el monto que ellas indiquen. Lo platicamos en mayo.</div>
+      </div>
+    </div>
+
+    <div class="frente">
+      <div class="frente-icon">👰</div>
+      <div class="frente-content">
+        <div class="frente-title">Su vestido <span class="frente-pill may">Mayo o junio</span></div>
+        <div class="frente-desc">Usted lo escoge y compra. Presupuesto L 10,000.</div>
+      </div>
+    </div>
+
+    <div class="frente">
+      <div class="frente-icon">💍</div>
+      <div class="frente-content">
+        <div class="frente-title">Nuestros anillos <span class="frente-pill may">Mayo o junio</span></div>
+        <div class="frente-desc">Los compramos los dos juntos. Aún no sabemos dónde. Presupuesto L 8,000 a L 15,000.</div>
+      </div>
+    </div>
+
+    <div class="frente">
+      <div class="frente-icon">🤵</div>
+      <div class="frente-content">
+        <div class="frente-title">Mi traje <span class="frente-pill may">Mayo o junio</span></div>
+        <div class="frente-desc">Lo compro yo. Presupuesto L 3,000 a L 5,000.</div>
+      </div>
+    </div>
+
+    <div class="frente">
+      <div class="frente-icon">📋</div>
+      <div class="frente-content">
+        <div class="frente-title">Trámite civil RNP <span class="frente-pill june">Junio</span></div>
+        <div class="frente-desc">Lo abordamos en junio. Tenemos partidas de nacimiento listas. Edicto matrimonial requiere mínimo 8 días antes del evento.</div>
+      </div>
+    </div>
+
+    <div class="frente">
+      <div class="frente-icon">💄</div>
+      <div class="frente-content">
+        <div class="frente-title">Maquillaje y peinado <span class="frente-pill june">Junio</span></div>
+        <div class="frente-desc">Decisión y contratación en junio. Presupuesto L 3,000 a L 5,000.</div>
+      </div>
+    </div>
+
+    <div class="frente">
+      <div class="frente-icon">🎁</div>
+      <div class="frente-content">
+        <div class="frente-title">Recuerdos para invitados <span class="frente-pill june">Junio</span></div>
+        <div class="frente-desc">Si decidimos hacerlos. Presupuesto L 4,000.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section>
+    <div class="eyebrow">Lo que viene</div>
+    <h2>Las <em>próximas</em> semanas</h2>
+    <p class="lead">Sin prisa. Tenemos hasta mediados de mayo para decidir el lugar.</p>
+
+    <div class="timeline">
+      <div class="tl-item today">
+        <div class="tl-day">Hoy jueves 7 de mayo, 4:00 PM <span class="pill">hoy</span></div>
+        <div class="tl-evt">Visita al Hotel Maya Colonial. Vamos los dos.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">Sábado 9 o domingo 10 de mayo</div>
+        <div class="tl-evt">Visita a Angeli Gardens. Confirmo cita con Lourdes Madrid.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">Lunes 11 a miércoles 13 de mayo</div>
+        <div class="tl-evt">Decisión final del lugar entre los dos. Sin presión.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">Jueves 14 a viernes 15 de mayo</div>
+        <div class="tl-evt">Anticipo y reserva del lugar elegido. Si está de acuerdo, platicamos con su mamá sobre el aporte.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">Después del 15 de mayo</div>
+        <div class="tl-evt">Luna de miel, vestido, traje, anillos, fotógrafo confirmado.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">Junio</div>
+        <div class="tl-evt">Trámite civil RNP, maquillaje, peinado, recuerdos, edicto matrimonial.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">Viernes 10 de julio</div>
+        <div class="tl-evt">Pago total al lugar elegido (8 días antes del evento).</div>
+      </div>
+      <div class="tl-item boda">
+        <div class="tl-day">Sábado 18 de julio · nuestra boda</div>
+        <div class="tl-evt">4:00 PM ceremonia · 9:00 PM cierre.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DECISIONES -->
+  <section>
+    <div class="eyebrow">Para esta semana</div>
+    <h2>Tres <em>conversaciones</em></h2>
+    <p class="lead">Lo que tenemos que platicar entre los dos en los próximos días.</p>
+
+    <div class="question-block">
+      <div class="lbl">Conversación 1</div>
+      <div class="q">¿Cómo nos sentimos en Hotel Maya Colonial?</div>
+      <div class="why">Después de la visita de hoy. Sin compararla con D'Ilina, solo con honestidad: ¿se imagina ahí la boda? Si sí, eso pesa fuerte. Si no, vamos con más expectativa a Angeli.</div>
+    </div>
+
+    <div class="question-block">
+      <div class="lbl">Conversación 2</div>
+      <div class="q">Después de visitar Angeli, ¿qué lugar?</div>
+      <div class="why">Ya tendremos los dos lugares vistos. Hotel Maya Colonial (su mamá lo cubre completo) o Angeli Gardens (ponemos L 28,625 nosotros y queda margen ajustado para todo lo demás).</div>
+    </div>
+
+    <div class="question-block">
+      <div class="lbl">Conversación 3</div>
+      <div class="q">¿Le parece bien la sugerencia del techo a su mamá?</div>
+      <div class="why">Si está de acuerdo, decidimos juntos cómo y cuándo platicarlo con ella. La idea sería agradecerle y dejarle saber el monto que estamos considerando, sin imponer, y dejándola con libertad de ajustarlo. Si usted prefiere otro número o que abordemos esto distinto, lo platicamos.</div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="heart">
+    Esto lo decidimos los dos.<br>
+    La amo.
+  </div>
+  <div>Última actualización: jueves 7 de mayo 2026</div>
+</footer>
+
+<script>
+  function updateCountdown() {
+    const target = new Date('2026-07-18T16:00:00-06:00').getTime();
+    const now = new Date().getTime();
+    const diff = target - now;
+    if (diff < 0) {
+      document.getElementById('countdown').innerHTML = '<div class="count-cell"><div class="count-num">¡Hoy!</div><div class="count-lbl">es el día</div></div>';
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-d').textContent = d;
+    document.getElementById('cd-h').textContent = h;
+    document.getElementById('cd-m').textContent = m;
+    document.getElementById('cd-s').textContent = s;
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
